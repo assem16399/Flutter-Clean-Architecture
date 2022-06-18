@@ -1,6 +1,6 @@
-# clean_arch
+# Flutter Clean Architecture
 
-A new Flutter project.
+Flutter project applying uncle Bob's Clean Architecture.
 
 ## Getting Started
 
