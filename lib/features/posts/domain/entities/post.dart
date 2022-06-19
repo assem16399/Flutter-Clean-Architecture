@@ -1,17 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-class Post implements Equatable {
+class Post with EquatableMixin {
   final int id;
   final String title;
   final String body;
 
-  Post({required this.id, required this.title, required this.body});
+  const Post({required this.id, required this.title, required this.body});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [id, title, body];
 
   @override
-  // TODO: implement stringify
   bool? get stringify => true;
 }

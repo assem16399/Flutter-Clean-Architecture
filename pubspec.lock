@@ -58,14 +58,21 @@ packages:
     source: hosted
     version: "1.0.5"
   dartz:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: dartz
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.1"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.6"
   equatable:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: equatable
       url: "https://pub.dartlang.org"
@@ -98,7 +105,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_bloc:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
@@ -122,19 +129,12 @@ packages:
     source: sdk
     version: "0.0.0"
   get_it:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: get_it
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.2.0"
-  http:
-    dependency: "direct dev"
-    description:
-      name: http
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.13.4"
   http_parser:
     dependency: transitive
     description:
@@ -143,7 +143,7 @@ packages:
     source: hosted
     version: "4.0.1"
   internet_connection_checker:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: internet_connection_checker
       url: "https://pub.dartlang.org"
@@ -248,7 +248,7 @@ packages:
     source: hosted
     version: "6.0.3"
   shared_preferences:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: shared_preferences
       url: "https://pub.dartlang.org"
