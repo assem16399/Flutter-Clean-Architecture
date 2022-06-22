@@ -1,11 +1,11 @@
-import 'package:clean_arch/core/error/exceptions.dart';
-import 'package:clean_arch/core/error/failures.dart';
-import 'package:clean_arch/core/network/network_info.dart';
-import 'package:clean_arch/features/posts/data/data_sources/posts_local_data_source.dart';
-import 'package:clean_arch/features/posts/data/data_sources/posts_remote_data_source.dart';
-import 'package:clean_arch/features/posts/data/models/post_model.dart';
-import 'package:clean_arch/features/posts/domain/entities/post.dart';
-import 'package:clean_arch/features/posts/domain/repos/posts_repo.dart';
+import '/core/error/exceptions.dart';
+import '/core/error/failures.dart';
+import '/core/network/network_info.dart';
+import '/features/posts/data/data_sources/posts_local_data_source.dart';
+import '/features/posts/data/data_sources/posts_remote_data_source.dart';
+import '/features/posts/data/models/post_model.dart';
+import '/features/posts/domain/entities/post.dart';
+import '/features/posts/domain/repos/posts_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
