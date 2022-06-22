@@ -26,3 +26,11 @@ class CacheFailure extends Failure {
   @override
   bool? get stringify => true;
 }
+
+class UndefinedFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+
+  @override
+  bool? get stringify => true;
+}

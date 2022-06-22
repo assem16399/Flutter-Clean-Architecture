@@ -33,6 +33,8 @@ class PostsRepoImpl implements PostsRepo {
       return Right(await _getPostsDataFromServer());
     } on DioError {
       return Left(DioFailure());
+    } catch (_) {
+      return Left(UndefinedFailure());
     }
   }
 
@@ -48,6 +50,8 @@ class PostsRepoImpl implements PostsRepo {
       return right(localePostModels);
     } on CacheException {
       return Left(CacheFailure());
+    } catch (_) {
+      return Left(UndefinedFailure());
     }
   }
 
@@ -80,6 +84,8 @@ class PostsRepoImpl implements PostsRepo {
         return const Right(unit);
       } on DioError {
         return Left(DioFailure());
+      } catch (_) {
+        return Left(UndefinedFailure());
       }
     } else {
       return Left(NoInternetFailure());
