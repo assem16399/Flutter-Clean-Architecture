@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch/core/error/failures.dart';
-import 'package:clean_arch/core/strings/failures_strings.dart';
+import '/core/error/failures.dart';
+import '/core/strings/failures_strings.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 

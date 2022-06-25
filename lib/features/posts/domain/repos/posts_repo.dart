@@ -1,8 +1,8 @@
-import 'package:clean_arch/features/posts/domain/entities/post.dart';
+import '/features/posts/domain/entities/post.dart';
 
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/error/failures.dart';
+import '/core/error/failures.dart';
 
 abstract class PostsRepo {
   Future<Either<Failure, List<Post>>> getAllPosts();

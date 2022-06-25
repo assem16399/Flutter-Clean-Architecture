@@ -1,13 +1,13 @@
 import 'package:bloc/bloc.dart';
-import 'package:clean_arch/core/strings/failures_strings.dart';
-import 'package:clean_arch/core/strings/process_success_strings.dart';
+import '/core/strings/failures_strings.dart';
+import '/core/strings/process_success_strings.dart';
 import '/features/posts/domain/entities/post.dart';
 import '/features/posts/domain/usecases/delete_post_usecase.dart';
 import '/features/posts/domain/usecases/update_post_usecase.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../../../core/error/failures.dart';
+import '/core/error/failures.dart';
 import '../../../domain/usecases/add_new_post_usecase.dart';
 
 part 'manage_post_event.dart';

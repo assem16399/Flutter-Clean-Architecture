@@ -1,7 +1,7 @@
-import 'package:clean_arch/features/posts/domain/repos/posts_repo.dart';
+import '/features/posts/domain/repos/posts_repo.dart';
 import 'package:dartz/dartz.dart';
 
-import '../../../../core/error/failures.dart';
+import '/core/error/failures.dart';
 import '../entities/post.dart';
 
 class GetAllPostsUseCase {

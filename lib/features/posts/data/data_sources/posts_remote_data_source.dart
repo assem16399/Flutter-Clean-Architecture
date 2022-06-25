@@ -1,4 +1,4 @@
-import 'package:clean_arch/core/network/remote/dio_helper.dart';
+import '/core/network/remote/dio_helper.dart';
 import 'package:dio/dio.dart';
 
 import '/features/posts/data/models/post_model.dart';
@@ -53,9 +53,7 @@ class PostsRemoteDataSourceImpl implements PostsRemoteDataSource {
     final updatedPostId = updatedPostModel.id;
     final updatedPostModelJson = updatedPostModel.toJson();
     await DioHelper.patchRequest(
-      path: '$kPostsEndpoint/$updatedPostId',
-      data: updatedPostModelJson,
-    );
+        path: '$kPostsEndpoint/$updatedPostId', data: updatedPostModelJson);
     return unit;
   }
 }
