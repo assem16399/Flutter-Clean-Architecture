@@ -1,8 +1,9 @@
 import 'dart:convert';
 
+import 'package:clean_arch/core/network/local/cache_helper.dart';
+
 import '/core/error/exceptions.dart';
 import 'package:dartz/dartz.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/post_model.dart';
 
@@ -13,23 +14,19 @@ abstract class PostsLocalDataSource {
 }
 
 class PostsLocalDataSourceImpl implements PostsLocalDataSource {
-  final SharedPreferences sharedPreferences;
-
-  PostsLocalDataSourceImpl({required this.sharedPreferences});
-
   @override
   Future<Unit> cachePosts(List<PostModel> postModels) async {
     final postModelsRawData =
         postModels.map((postModel) => postModel.toJson()).toList();
 
-    await sharedPreferences.setString(
-        'cachedPosts', jsonEncode(postModelsRawData));
+    CacheHelper.setData(
+        key: 'cachedPosts', value: jsonEncode(postModelsRawData));
     return unit;
   }
 
   @override
   Future<List<PostModel>> getCachedPost() async {
-    final encodePostsJson = sharedPreferences.getString('cachedPosts');
+    final encodePostsJson = CacheHelper.getData(key: 'cachedPosts');
     if (encodePostsJson == null) throw CacheException();
     final postModelsRawData =
         jsonDecode(encodePostsJson) as List<Map<String, dynamic>>;
