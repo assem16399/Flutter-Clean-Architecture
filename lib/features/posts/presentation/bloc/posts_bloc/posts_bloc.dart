@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
-import '/core/error/failures.dart';
-import '/core/strings/failures_strings.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
+import '/core/error/failures.dart';
 import '../../../domain/entities/post.dart';
 import '../../../domain/usecases/get_all_posts_usecase.dart';
 
@@ -21,34 +20,26 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
         // you can use getAllPosts.call() instead
         final failureOrPosts = await getAllPosts();
 
-        emit(_foldFailureOrPosts(failureOrPosts));
+        emit(_getNextStateAfterEitherFolding(failureOrPosts));
       } else if (event is RefreshAllPostsEvent) {
         emit(PostsLoadingState());
 
-        // you can use getAllPosts.call() instead
+        // You can use getAllPosts.call() instead
         final failureOrPosts = await getAllPosts();
 
-        emit(_foldFailureOrPosts(failureOrPosts));
+        emit(_getNextStateAfterEitherFolding(failureOrPosts));
       }
     });
   }
 
-  PostsState _foldFailureOrPosts(Either<Failure, List<Post>> either) {
+  // Method to emit the next happening state depending on the either value
+  PostsState _getNextStateAfterEitherFolding(
+      Either<Failure, List<Post>> either) {
     return either.fold(
         (failure) => PostsFailedToLoadState(failMsg: _mapFailureToMsg(failure)),
         (posts) => PostsLoadedSuccessfullyState(posts: posts));
   }
 
-  String _mapFailureToMsg(Failure failure) {
-    switch (failure.runtimeType) {
-      case DioFailure:
-        return kServerFailureString;
-      case CacheFailure:
-        return kCacheFailureString;
-      case NoInternetFailure:
-        return kInternetFailureString;
-      default:
-        return kUndefinedFailureString;
-    }
-  }
+  // Method to return the failure msg based on the failure type
+  String _mapFailureToMsg(Failure failure) => failure.failureMsg;
 }
